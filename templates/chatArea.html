@@ -1,0 +1,33 @@
+<div class="left-panel col-xs-2">
+    <div class="userArea row"><img src="http://localhost:5000/photos/{{nickname}}" class="img-circle user-image"/>
+        <span class="name users">{{name}}[{{nickname}}]</span>
+    </div>
+    <div class="online-users row" id="onlineUsers">
+        <h4> Пользователи онлайн:</h4>
+        {{#users}}
+        <div id="{{user_login}}" class="list-users users"><img src="http://localhost:5000/photos/{{login}}"
+                                                               class="img-circle"/>{{name}}[{{login}}]
+        </div>
+        {{/users}}
+    </div>
+</div>
+<div class="right-panel col-xs-10">
+    <div id="messageBoard" class="row chat-area">
+        {{#messages}}
+        <div class="row">
+            <div class="user-message {{whose}} user_{{user.login}}"> <img
+                    src="http://localhost:5000/photos/{{user.login}}" class="img-circle photo-in-chat"/> {{user.name}}[{{user.login}}]
+                <span class="time">{{time}}</span>
+                <div class="message">{{body}}</div>
+            </div>
+        </div>
+        {{/messages}}
+    </div>
+    <div class="row input-place">
+        <div class="col-xs-10"><textarea type="text" value="" placeholder="Начните набирать сообщение" id="messageField"
+                                         class="form-control"></textarea></div>
+        <div class="col-xs-2">
+            <button class="btn btn-primary" id="sendMessageButton" type="button" value="SEND">Написать</button>
+        </div>
+    </div>
+</div>

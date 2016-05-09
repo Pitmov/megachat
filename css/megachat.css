@@ -1,0 +1,121 @@
+html, body,#main-container, .left-panel, .right-panel, .chat-area {
+    height: 100%;
+}
+
+.left-panel {
+    background: #FB825C;
+    color: #fff;
+}
+
+.login-form {
+    background: #F0F0F0;
+    border-radius: 10px;
+    margin-top: 15%;
+}
+
+.login-form .input-cols {
+    padding: 13px;
+}
+
+.login-form .input-cols input, .login-form .input-cols .button-row {
+    margin-bottom: 10px;
+}
+
+.login-form .input-cols .button-row {
+    float: right;
+}
+
+.dangerNotifier {
+    background: #df382c;
+}
+
+.successNotifier {
+    background: #2c8d3;
+}
+
+.notifier {
+    position: fixed;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    right: 10px;
+    top: 20px;
+    width: 200px;
+}
+
+.remove-notifier {
+    cursor: pointer;
+    float: right;
+    position: absolute !important;
+    top: 5px !important;
+    right: 4px;
+}
+
+.input-place {
+    padding: 10px;
+    height: 60px;
+}
+
+.chat-area {
+    margin-bottom: -60px;
+}
+
+#sendMessageButton {
+    width: 100%;
+}
+
+#messageField {
+    height: 38px;
+}
+
+.user-image {
+    cursor: pointer;
+}
+
+.users {
+    word-wrap: break-word;
+    color: #fff;
+    font-size: 23px;
+}
+
+.online-users, .userArea {
+    padding: 10px;
+}
+
+.my {
+    float: right;
+    background: #867c71;
+}
+
+.not-my {
+    float: left;
+    background: #FB825C;
+}
+
+#messageBoard {
+    padding: 33px;
+    overflow: auto;
+    padding-bottom: 55px;
+}
+
+.user-message {
+    width: 50%;
+    border-radius: 9px;
+    margin: 5px;
+    color: #fff;
+    padding: 4px;
+}
+
+.photo-in-chat {
+    width: 36px;
+}
+
+.message {
+    word-wrap: break-word;
+    white-space: pre;
+}
+
+.time {
+    font-size: 11px;
+    font-style: italic;
+}

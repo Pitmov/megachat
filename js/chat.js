@@ -5,6 +5,8 @@ let userOnlineRow = require('../templates/userOnlineRow.html'),
     newMessageRow = require('../templates/message.html'),
     mustache = require('mustache'),
     helpers = require('helpers');
+
+const imageString = "http://localhost:8000/photos/";
 class Chat {
     constructor(chatContainerId, onlineUsersId, textFieldId, userLogin, token) {
         this.chatContainerId = chatContainerId;
@@ -50,6 +52,12 @@ class Chat {
         let messageHtml = mustache.render(newMessageRow, messageObject);
         document.getElementById(this.chatContainerId).insertAdjacentHTML('beforeend', messageHtml);
         document.getElementById(this.chatContainerId).scrollTop = 1000000000;
+    }
+
+    changeImages(userLogin) {
+        Array.prototype.slice.call(document.querySelectorAll('.user_'+userLogin)).forEach((el) => {
+            el.getElementsByTagName('img')[0].src = imageString+userLogin+"?" + new Date().getTime();
+        });
     }
 }
 

@@ -1,6 +1,7 @@
 /**
  * Created by Teplov on 09.05.2016.
  */
+const connectionString = 'ws://localhost:8000';
 let Notifier = require('../js/notifier');
 class Login {
     constructor(nameId, nicknameId) {
@@ -22,7 +23,7 @@ class Login {
     login(noCheck) {
         let _this = this;
         if ((noCheck && localStorage['user']) || (!noCheck && this.checkLoginData())) {
-            let connection = new WebSocket('ws://localhost:5000'),
+            let connection = new WebSocket(connectionString),
                 name = localStorage['user'] ? localStorage['user'].split(',')[0] : _this.name.value.trim(),
                 nickname = localStorage['user'] ? localStorage['user'].split(',')[1] : _this.nickname.value.trim();
             connection.onopen = function () {
@@ -58,9 +59,11 @@ class Login {
                         localStorage["user"] = name + ',' + nickname;
                         document.dispatchEvent(connectionEvent);
                     } else if (jsonData.op === 'error' && jsonData.sourceOp === 'reg') {
+                        localStorage['user'] = '';
                         Notifier.show(jsonData.error.message, 'alarm');
                     }
                 } catch (e) {
+                    console.log(e);
                     let connectionEvent = new CustomEvent("connectionClosed", {
                         detail: 'connectionClosed'
                     });

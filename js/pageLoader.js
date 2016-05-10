@@ -9,21 +9,21 @@ let loginHtml = require('../templates/loginForm.html'),
 class PageLoader {
     constructor(containerId) {
         this.containerId = containerId;
-        this.loginEvents = null;
+        this.actionEvents = null;
     }
 
     setPage(param, pageOptions) {
         let _this = this;
 
-        if (this.loginEvents) {
-            this.loginEvents.removeEvents();
+        if (this.actionEvents) {
+            this.actionEvents.removeEvents();
         }
 
-        _this.loginEvents = new events(pageOptions);
+        _this.actionEvents = new events(pageOptions);
 
         if (param === 'login') {
             document.getElementById(this.containerId).innerHTML = loginHtml;
-            _this.loginEvents.setEvents('login');
+            _this.actionEvents.setEvents('login');
         } else {
             console.log(pageOptions.initialData.messages);
             let chatHtml = mustache.render(chatAreaHtml, {
@@ -45,8 +45,10 @@ class PageLoader {
 
             document.getElementById(this.containerId).innerHTML = chatHtml;
 
-            document.getElementById(pageOptions.chatContainerId).scrollTop=1000000000;
-            _this.loginEvents.setEvents('chat');
+            setTimeout(function() {
+                document.getElementById(pageOptions.chatContainerId).scrollTop = 1000000000;
+            }, 300);
+            _this.actionEvents.setEvents('chat');
         }
     }
 }

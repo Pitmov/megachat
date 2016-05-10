@@ -1,4 +1,4 @@
-html, body,#main-container, .left-panel, .right-panel, .chat-area {
+html, body, #main-container, .left-panel, .right-panel, .chat-area {
     height: 100%;
 }
 
@@ -43,7 +43,7 @@ html, body,#main-container, .left-panel, .right-panel, .chat-area {
     width: 200px;
 }
 
-.remove-notifier {
+.remove-notifier, .close-file-panel {
     cursor: pointer;
     float: right;
     position: absolute !important;
@@ -112,10 +112,66 @@ html, body,#main-container, .left-panel, .right-panel, .chat-area {
 
 .message {
     word-wrap: break-word;
-    white-space: pre;
+    white-space: pre-wrap;
+    margin-left: 3px;
 }
 
 .time {
     font-size: 11px;
     font-style: italic;
+}
+
+#load-file-panel {
+    position: fixed;
+    min-width: 400px;
+    min-height: 300px;
+    background: #ccc;
+    border-radius: 9px;
+    left: 50%;
+    top: 10%;
+    margin-left: -200px;
+    padding: 10px;
+}
+
+#load-file-panel .file-panel-body {
+    width: 100%;
+    background: #fff;
+    height: 260px;
+    border: 1px dashed #ddd;
+}
+
+#load-file-panel .file-panel-body .drop-area {
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    font-style: italic;
+    font-size: 20px;
+    color: #ccc;
+    line-height: 240px;
+}
+
+.file-buttons {
+    margin-top: 3px;
+}
+
+.file-buttons button {
+    float: right;
+}
+
+.preview-data {
+    width: 100%;
+    line-height: 30px;
+    height: 100%;
+}
+
+.preview-image {
+    max-width: 200px;
+}
+
+img {
+    max-width: 100px;
+}
+
+.left-panel {
+    overflow: auto;
 }
